@@ -172,10 +172,11 @@ if(isset($_POST['create_account'])){
     }
     else{
         // add to datebase
-        $sqlQuery = "INSERT INTO Accounts ('email', 'password','name','address','number','security') VALUES ('$email','$password','$name','$address','$number'','$security')";
+        $sqlQuery = "INSERT INTO Accounts (email, password,name,address,number,security) VALUES ('$email','$password','$name','$address','$number','$security')";
         $mysql_connect -> query($sqlQuery);
+
         $_SESSION['login_message'] = "account created successfully";
-        // redirect user to login page
+        // redirect user to index or login page
         echo'
         <script>
         window.location.replace("https://cypress-cdbat.000webhostapp.com/index.php");
