@@ -42,27 +42,50 @@ else{
 include 'header.php';
 ?>
 <!-- space so navbar doesn't get in the way -->
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <head>
     <meta charset="UTF-8">
     <title>Cypress Login Page</title>
 </head>
 <body>
+<div  style = "width:50%; margin: 0 auto; ">
+
     <!-- form to send server username and password -->
     <form id = "login" name = "login" action = "" type = "POST">
-        <label for ="username">Username:
+    <table style="width:100%">
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                <label for="username">username:
+            </td>
+            <td>
+                 <input type='text' name='username' id='username'>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="userName">Password:
+            </td>
+            <td>
+                 <input type='password' name='pass' id='pass'>
+            </td>
+        </tr>
+        <!-- <label for ="username">Username:
         <input type = "username" id = "username" name = "username" >
         <label for ="pass">Password:
-        <input type = "password" id = "pass" name = "pass" >
+        <input type = "password" id = "pass" name = "pass" > -->
+        </table>
 
         <button type = "submit" id = "login" name = "login">Login</button>
-        <button type = "submit" id = "signup" name = "signup">Signup</button>
+        <button  id = "signup" name = "signup" onclick = "sign_up()" type = "submit">Signup</button>
 
     </form>
+    </div>
 </body>
+
+<script src="signup_redirect.js"></script>
+
 </html>
