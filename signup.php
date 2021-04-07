@@ -31,10 +31,37 @@
         </tr>
         <tr>
             <td>
-                <label for="username">Username:
+                <label for="first_name">First Name:
             </td>
             <td>
-                 <input type='text' name='username' id='username'>
+                 <input type='input' name='first_name' id='first_name'>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="address">Address:
+            </td>
+            <td>
+                 <input type='input' name='address' id='address'>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="number">Phone (Format: 416-000-0000):
+            </td>
+            <td>
+            <input type="tel" id="number" name="number"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email:
+            </td>
+            <td>
+                 <input type='email' name='email' id='email'>
 
             </td>
         </tr>
@@ -55,6 +82,15 @@
             </td>
             <td>
             <input type='password' name='password2' id='password2'>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <label for="security">Security:
+            </td>
+            <td>
+            <input type='input' name='security' id='security'>
 
             </td>
         </tr>
@@ -85,14 +121,20 @@
 if(isset($_POST['create_account'])){
 
     // get form info
-    $username = strtolower($_POST['username']);
+    $email = strtolower($_POST['email']);
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
+    $name = $_POST['first_name'];
+    $address = $_POST['address'];
+    $number = $_POST['number'];
+    $security = $_POST['security'];
 
-    $sqlQuery = "SELECT * FROM Accounts where username = '$username'";
+
+
+    $sqlQuery = "SELECT * FROM Accounts where email = '$email'";
 
     $queryResult = $mysql_connect -> query($sqlQuery);
-    // check if username taken
+    // check if email taken
     $queryRow = mysqli_num_rows($queryResult);
 
     // password not matching
@@ -100,23 +142,37 @@ if(isset($_POST['create_account'])){
         print("Password and confirm password are not the same. Please try again");
     }
     // blank entry
-    elseif($username == "" || $password == ""){
-        print("You must enter a password and username");
-
+    elseif($name == ""){
+        print("You must enter a first name");
     }
-    // username taken
+    elseif($address == ""){
+        print("You must your address");
+    }
+    elseif($number == ""){
+        print("You must enter your number");
+    }
+    elseif($security == ""){
+        print("You must a secruity word");
+    }
+    elseif($email == "" ){
+        print("You must enter an email");
+    }
+    elseif( $password == ""){
+        print("You must enter a password");
+    }
+    // email taken
     elseif($queryRow != 0){
 
-        print("An account already exists with this username");
+        print("An account already exists with this email");
         echo("<br>");
-        print("Please pick another username");
+        print("Please pick another email");
     }
     elseif(!isset($_POST['agreement'])){
         print("Please accept the terms and agreement");
     }
     else{
         // add to datebase
-        $sqlQuery = "INSERT INTO Accounts ('username', 'password') VALUES ('$username','$password')";
+        $sqlQuery = "INSERT INTO Accounts ('email', 'password','name','address','number','security') VALUES ('$email','$password','$name','$address','$number'','$security')";
         $mysql_connect -> query($sqlQuery);
         $_SESSION['login_message'] = "account created successfully";
         // redirect user to login page
