@@ -13,24 +13,25 @@ else{
     if(isset($_POST['login'])){
 
         // get login info
-        $username = strtolower($_POST['username']);
+        $email = strtolower($_POST['email']);
         $pass = $_POST['pass'];
 
-        $sqlQuery = "SELECT * FROM Accounts WHERE username ='$username' AND password ='$pass'";
+        $sqlQuery = "SELECT * FROM Accounts WHERE email ='$email' AND password ='$pass'";
 
         // get query result
         $queryResult = $mysql_connect -> query($sqlQuery);
-        $queryRows = mysqli_num_rows($queryRows);
+        $queryRows = mysqli_num_rows($queryResult);
 
         // account found
         if($queryRows == 1){
             // logs person in
-            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
             // redirect to home page
             header("Location: index.php");
 
         }
     }
+
 }
 
 ?>
@@ -50,8 +51,8 @@ include 'header.php';
 <body>
 <div  style = "width:50%; margin: 0 auto; ">
 
-    <!-- form to send server username and password -->
-    <form id = "login" name = "login" action = "" type = "POST">
+    <!-- form to send server email and password -->
+    <form id = "login_form" name = "login_form" action = "#" method = "POST">
     <table style="width:100%">
         <tr>
             <th></th>
@@ -59,22 +60,22 @@ include 'header.php';
         </tr>
         <tr>
             <td>
-                <label for="username">username:
+                <label for="email">Email:
             </td>
             <td>
-                 <input type='text' name='username' id='username'>
+                 <input type='email' name='email' id='email'>
             </td>
         </tr>
         <tr>
             <td>
-                <label for="userName">Password:
+                <label for="pass">Password:
             </td>
             <td>
                  <input type='password' name='pass' id='pass'>
             </td>
         </tr>
-        <!-- <label for ="username">Username:
-        <input type = "username" id = "username" name = "username" >
+        <!-- <label for ="email">Username:
+        <input type = "email" id = "email" name = "email" >
         <label for ="pass">Password:
         <input type = "password" id = "pass" name = "pass" > -->
         </table>
