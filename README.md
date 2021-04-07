@@ -21,7 +21,7 @@ Rome can be built in a day.
 | `Index page`   | Index page complete? | <p align = "center"> :x: </p> |
 | `Header page` | Header page complete? | <p align = "center"> :white_check_mark: </p> |
 | `Login page`   | User can login with correct username and password? Optional: verify they're human? | <p align = "center"> :white_check_mark: </p>|
-| `Signup page`   | User can create an account with valid credentials (strong password, has @gmail, etc)? | <p align = "center"> :white_check_mark: </p>|
+| `Signup page`   | User can create an account with valid credentials (strong password, has @cypress.on.ca, etc)? | <p align = "center"> :white_check_mark: </p>|
 | `Logout page`   | User can logout from their account? | <p align = "center"> :white_check_mark: </p>|
 | `Cancel` (from login)   | User can cancel from login and return to home page? | <p align = "center"> :white_check_mark: </p>  |
 | `Select language change`   | User can view ALL webpages in either English or French? | <p align = "center"> :x: </p>|
