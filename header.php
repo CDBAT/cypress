@@ -1,9 +1,17 @@
 <head>
 <!-- bootstrap files  -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <!-- bootstrap nav bar -->
@@ -19,13 +27,16 @@
       </li>
       <!-- check if user needs to login -->
       <?php
-        if(!isset($_SESSION['username'])){
+        if(!isset($_SESSION['email'])){
       ?>
       <li class="nav-item">
         <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/login.php">Login</a>
       </li>
       <?php
         }
+        // user login
+        if(isset($_SESSION['email'])){
+
     ?>
       <!-- drop downs -->
       <li class="nav-item dropdown">
@@ -33,9 +44,9 @@
           Reports
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Create Report</a>
-          <a class="dropdown-item" href="#">Edit Report</a>
-          <a class="dropdown-item" href="#">Delete Report</a>
+          <a class="dropdown-item" href="https://cypress-cdbat.000webhostapp.com/create_report.php">Create Report</a>
+          <a class="dropdown-item" href="https://cypress-cdbat.000webhostapp.com/edit_report.php">Edit Report</a>
+          <a class="dropdown-item" href="https://cypress-cdbat.000webhostapp.com/delete_report.php">Delete Report</a>
         </div>
       </li>
       <li class="nav-item">
@@ -47,6 +58,8 @@
       <li class="nav-item">
         <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/notifications.php">Notifications</a>
       </li>
+      <!-- end php -->
+      <?php }?>
       <li class="nav-item">
         <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/faq.php">FAQ</a>
       </li>
@@ -54,16 +67,16 @@
         <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/contact.php">Contact</a>
       </li>
 
-       <!-- give user option to logout -->
-       <?php
-           if(isset($_SESSION['username'])){
-        ?>
-        <li class="nav-item">
-        <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/accounts.php">Account Setting</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/logout.php">Logout</a>
-        </li>
+        <?php
+        // user login
+        if(isset($_SESSION['email'])){
+          ?>
+          <li class="nav-item">
+          <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/accounts.php">Account Setting</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/logout.php">Logout</a>
+          </li>
         <?php
            }
         ?>
