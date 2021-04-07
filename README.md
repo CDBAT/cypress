@@ -32,7 +32,7 @@ Rome can be built in a day.
 | `Ranking system`   | System can sort all user-generated reports by location and frequency of identical complaints? | <p align = "center"> :x: </p>|
 | `FAQ`   | User can see list of frequently asked questions? | <p align = "center"> :x: </p>|
 | `Contact`   | User can see list of city officials with contact info and office hours for each council member? | <p align = "center"> :x: </p>|
-| `Notification`   | Privileged user can receive notification on new report created?<br> Normal user can receive notification on report status? | <p align = "center"> :x: </p>|
+| `Notification`   | Privileged user can receive notification on new report created?<br> Normal user can receive notification on report status from Privileged user? | <p align = "center"> :x: </p>|
 
 
 ### Languages and Tools
