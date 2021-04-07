@@ -40,6 +40,15 @@
         </tr>
         <tr>
             <td>
+                <label for="last_name">Last Name:
+            </td>
+            <td>
+                 <input type='input' name='last_name' id='last_name'>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="address">Address:
             </td>
             <td>
@@ -124,7 +133,8 @@ if(isset($_POST['create_account'])){
     $email = strtolower($_POST['email']);
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
-    $name = $_POST['first_name'];
+    $fname = $_POST['first_name'];
+    $lname = $_POST['last_name'];
     $address = $_POST['address'];
     $number = $_POST['number'];
     $security = $_POST['security'];
@@ -142,11 +152,14 @@ if(isset($_POST['create_account'])){
         print("Password and confirm password are not the same. Please try again");
     }
     // blank entry
-    elseif($name == ""){
+    elseif($fname == ""){
         print("You must enter a first name");
     }
+    elseif($lname == ""){
+        print("You must enter a last name");
+    }
     elseif($address == ""){
-        print("You must your address");
+        print("You must enter an address");
     }
     elseif($number == ""){
         print("You must enter your number");
@@ -172,7 +185,7 @@ if(isset($_POST['create_account'])){
     }
     else{
         // add to datebase
-        $sqlQuery = "INSERT INTO Accounts (email, password,name,address,number,security) VALUES ('$email','$password','$name','$address','$number','$security')";
+        $sqlQuery = "INSERT INTO Accounts (email, password,first_name,last_name,address,number,security) VALUES ('$email','$password','$fname','$lname','$address','$number','$security')";
         $mysql_connect -> query($sqlQuery);
 
         $_SESSION['login_message'] = "account created successfully";
