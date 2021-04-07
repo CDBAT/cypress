@@ -59,6 +59,9 @@
            if(isset($_SESSION['username'])){
         ?>
         <li class="nav-item">
+        <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/accounts.php">Account Setting</a>
+        </li>
+        <li class="nav-item">
         <a class="nav-link" href="https://cypress-cdbat.000webhostapp.com/logout.php">Logout</a>
         </li>
         <?php
