@@ -19,8 +19,8 @@ else{
         $sqlQuery = "SELECT * FROM Accounts WHERE username ='$username' AND password ='$pass'";
 
         // get query result
-        $queryResult = $mysql_connect -> query($sqlquery);
-        $queryRows = mysqli_num_rows($row);
+        $queryResult = $mysql_connect -> query($sqlQuery);
+        $queryRows = mysqli_num_rows($queryRows);
 
         // account found
         if($queryRows == 1){
