@@ -24,7 +24,7 @@ Rome can be built in a day.
 | `Logout page`   | User can logout from their account? | <p align = "center"> :white_check_mark: </p>|
 | `Cancel` (from login)   | User can cancel from login and return to home page? | <p align = "center"> :white_check_mark: </p>  |
 | `Select language change`   | User can view ALL webpages in either English or French? | <p align = "center"> :x: </p>|
-| `Registration page`   | User can register only ONE report per user and receive confirmation? | <p align = "center"> :x: </p>|
+| `Registration page`   | User can register only ONE report per user and receive confirmation? | <p align = "center"> :white_check_mark: </p> |
 | `Create report` (db related)  | User can create one report and receive confirmation? | <p align = "center"> :x: </p>|
 | `Delete report` (db related)   | User can delete one report and receive confirmation? | <p align = "center"> :x: </p>|
 | `Change report` (db related)  | User can modify one report and receive confirmation? | <p align = "center"> :x: </p>|
