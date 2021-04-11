@@ -16,6 +16,7 @@ else{
         $email = strtolower($_POST['email']);
         $pass = $_POST['pass'];
 
+        // select everything from the table Accounts where the column email = userEmail and column password = userpassword
         $sqlQuery = "SELECT * FROM Accounts WHERE email ='$email' AND password ='$pass'";
 
         // get query result
@@ -42,7 +43,6 @@ else{
 <?php
 include 'header.php';
 ?>
-<!-- space so navbar doesn't get in the way -->
 
 <head>
     <meta charset="UTF-8">
@@ -51,9 +51,12 @@ include 'header.php';
 <body>
 <div  style = "width:50%; margin: 0 auto; ">
 
+    <p><strong>You are currently at the Cypress login page. By Logging onto this sytem, you <br>
+     will be able to report a variety of problems as you have witnessed on the streets of Toronto </strong></p>
+     <br>
     <!-- form to send server email and password -->
     <form id = "login_form" name = "login_form" action = "#" method = "POST">
-    <table style="width:100%">
+        <table style="width:100%">
         <tr>
             <th></th>
             <th></th>
@@ -74,19 +77,31 @@ include 'header.php';
                  <input type='password' name='pass' id='pass'>
             </td>
         </tr>
+        <tr>
+            <td>
+            <button type = "submit" id = "login" name = "login">Login</button>
+            <button  id = "signup" name = "signup" onclick = "sign_up()" type = "submit">Signup</button>
+            </td>
+            <td>
+            <button  id = "forgot_pass" name = "forgot_pass" onclick = "reset_password()" type = "submit">Forgot Password</button>
+            </td>
+        </tr>
         <!-- <label for ="email">Username:
         <input type = "email" id = "email" name = "email" >
         <label for ="pass">Password:
         <input type = "password" id = "pass" name = "pass" > -->
         </table>
 
-        <button type = "submit" id = "login" name = "login">Login</button>
-        <button  id = "signup" name = "signup" onclick = "sign_up()" type = "submit">Signup</button>
+
 
     </form>
+    <br>
+    <br>
+    <button type="button"  id="cancel" name="cancel" onclick = "cancel()">Cancel</button>
     </div>
 </body>
 
-<script src="signup_redirect.js"></script>
+<script src="scripts/login_redirect.js"></script>
+<script src="scripts/cancel.js"></script>
 
 </html>

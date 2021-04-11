@@ -17,15 +17,14 @@ if (!$mysql_connect) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Edit Report Tab</title>
+    <title>Suggestion Report Tab</title>
     <link rel="stylesheet" href="stylesheets/edit_report.css"/>
 </head>
 
 <?php
 
-$email = $_SESSION['email'];
 
-$sqlQuery = "SELECT damage_type, city, street1, street2, damage_info FROM Forms where email = '$email'";
+$sqlQuery = "SELECT * FROM Forms ";
 $queryResult = $mysql_connect->query($sqlQuery);
 
 if ($queryResult) {
@@ -37,18 +36,18 @@ if ($queryResult) {
 ?>
 
 <body>
-
     <div class='jumbotron' style="background-color:white">
         <div class='bg order-1 order-md-2'></div>
         <div class='contents order-2 order-md-1'>
             <div class='container'>
                 <div class='row align-items-center justify-content-center'>
                     <div class='col-md-12 py-5'>
-                        <h3>Edit Report Tab</h3>
+                    <form  method="POST" id = "suggest" name = "suggest" action="suggest2.php" >
+                    <h3>Suggestion Report Tab</h3>
                         <?php
                         if ($queryRowCount > 0) {
-                            print("<p class='mb-4'>Choose a report to edit.");
-                        } 
+                            print("<p class='mb-4'>Choose a report to make a suggestion.");
+                        }
                         else {
                             print("<p class='mb-4'>You have no reports.");
                         }
@@ -67,7 +66,7 @@ if ($queryResult) {
                             <tbody>
                             <?php
                             while ($row = $queryResult->fetch_assoc()) {
-                                printf("<tr class='clickable' onclick='loadReport(\"%s\", \"%s\", \"%s\", \"%s\", \"%s\")'>\n", $row['damage_type'], $row['city'], $row['street1'], $row['street2'], $row['damage_info']);
+                                printf("<tr class='clickable' onclick='setFormID(\"%s\",\"%s\", \"%s\", \"%s\", \"%s\")'>\n", $row['form_id'], $row['damage_type'], $row['city'], $row['street1'], $row['street2']);
                                     printf("<td>%s</td>\n", $row['damage_type']);
                                     printf("<td>%s</td>\n", $row['city']);
                                     printf("<td>%s</td>\n", $row['street1']);
@@ -78,6 +77,16 @@ if ($queryResult) {
                             </tbody>
                         </table>
 
+                        <?php
+                        if ($queryRowCount > 0) {
+                            print("<p class='my-4' id='report_selected'></p>");
+                                // send form id
+                                print("<input type='text' id='form_id' name='form_id' value=''/>");
+
+                                print("<input type='submit' id='suggest_report' name='suggest_report'/>");
+                        }
+                        ?>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -88,11 +97,12 @@ if ($queryResult) {
 <?php
 }
 
+// wip
 $queryResult->free();
 $mysql_connect->close();
 
 ?>
 
-<script src="scripts/load_report.js"></script>
+<script src="scripts/suggest.js"></script>
 
 </html>

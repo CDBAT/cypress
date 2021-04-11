@@ -15,7 +15,7 @@
 
 
 <head>
-    <title>Sign Up</title>
+    <title>Account Settings</title>
     <meta charset='UTF-8'>
     <link rel="stylesheet" href="">
 
@@ -23,7 +23,7 @@
 
 <body>
 <div  style = "width:50%; margin: auto; ">
-    <form onsbumit method="POST" id = "sign_up" name = "sign_up" action="#" >
+    <form  method="POST" id = "sign_up" name = "sign_up" action="#" >
     <table style="width:100%">
         <tr>
             <th></th>
@@ -86,7 +86,7 @@
         </tr>
         <tr>
             <td>
-            <label for="password2">Confrim New Password:
+            <label for="password2">Confirm New Password:
 
             </td>
             <td>
@@ -96,7 +96,7 @@
         </tr>
         <tr>
             <td>
-            <label for="security">Security:
+            <label for="security">Secret Answer:
             </td>
             <td>
             <input type='input' name='security' id='security'>
@@ -119,7 +119,9 @@
             <button type="submit"  id="create_account" name="create_account">Create Account</button>
 
     </form>
-
+    <br>
+            <br>
+            <button type="button"  id="cancel" name="cancel" onclick = "cancel()">Cancel</button>
 </div>
 </body>
 
@@ -188,7 +190,9 @@ if(isset($_POST['create_account'])){
         $sqlQuery = "INSERT INTO Accounts (email, password,first_name,last_name,address,number,security) VALUES ('$email','$password','$fname','$lname','$address','$number','$security')";
         $mysql_connect -> query($sqlQuery);
 
-        $_SESSION['login_message'] = "account created successfully";
+
+        $message = "Your account was successfully created.";
+        echo "<script type='text/javascript'>alert('$message');</script>";
         // redirect user to index or login page
         echo'
         <script>
@@ -201,4 +205,5 @@ if(isset($_POST['create_account'])){
 ?>
 </div>
 
+<script src="scripts/cancel.js"></script>
 
