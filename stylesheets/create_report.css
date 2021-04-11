@@ -1,0 +1,66 @@
+.jumbotron{
+    height: 100vh;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 100%;
+}
+
+.btn-etobicoke {
+    height: 80%;
+    width: 50%;
+}
+
+.btn-downtown-toronto {
+    height: 70%;
+    width: 95%;
+}
+
+.btn-yorks {
+    height: 55%;
+    width: 100%;
+}
+
+.btn-east-york {
+    margin-left: 12%;
+}
+
+.btn-north-york {
+    height: 33%;
+    width: 90%;
+}
+
+.btn-scarborough {
+    height: 20%;
+    width: 155%;
+}
+
+.btn-back {
+    height: 90%;
+    width: 190%;
+}
+
+#report, #district, #city {
+    display: none;
+}
