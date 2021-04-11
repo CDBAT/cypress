@@ -1,0 +1,12 @@
+.clickable {
+    height: 50px;
+    cursor: pointer;
+}
+
+.clickable:hover td {
+    background-color: cyan;
+}
+
+thead {
+    background-color: #0080ff;
+}
