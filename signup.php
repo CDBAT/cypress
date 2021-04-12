@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     $mysql_connect = mysqli_connect("localhost", "id16543739_cdbat", "Cypress@12345", "id16543739_cypress");
@@ -8,9 +7,6 @@
     if(!$mysql_connect){
         die(mysqli_connect_error());
     }
-
-    include 'header.php';
-
 ?>
 
 
@@ -18,111 +14,104 @@
     <title>Account Settings</title>
     <meta charset='UTF-8'>
     <link rel="stylesheet" href="">
-
 </head>
 
 <body>
-<div  style = "width:50%; margin: auto; ">
-    <form  method="POST" id = "sign_up" name = "sign_up" action="#" >
-    <table style="width:100%">
-        <tr>
-            <th></th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>
-                <label for="first_name">First Name:
-            </td>
-            <td>
-                 <input type='input' name='first_name' id='first_name'>
+    <?php
+        include 'header.php';
+    ?>
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="last_name">Last Name:
-            </td>
-            <td>
-                 <input type='input' name='last_name' id='last_name'>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="address">Address:
-            </td>
-            <td>
-                 <input type='input' name='address' id='address'>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="number">Phone (Format: 416-000-0000):
-            </td>
-            <td>
-            <input type="tel" id="number" name="number"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="email">Email:
-            </td>
-            <td>
-                 <input type='email' name='email' id='email'>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-            <label for="password">Password:
-
-            </td>
-            <td>
-            <input type='password' name='password' id='password' >
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-            <label for="password2">Confirm New Password:
-
-            </td>
-            <td>
-            <input type='password' name='password2' id='password2'>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-            <label for="security">Secret Answer:
-            </td>
-            <td>
-            <input type='input' name='security' id='security'>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-            <label for="agreement">I agree to Cypress Terms of Service and Privacy Agreement
-
-            </td>
-            <td>
-            <input type='checkbox' name='agreement' id='agreement'>
-
-            </td>
-        </tr>
-    </table>
+    <div  style = "width:50%; margin: auto; ">
+        <form  method="POST" id = "sign_up" name = "sign_up" action="#" >
+        <table style="width:100%">
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>
+                    <label for="first_name"><?php checkLanguage("First Name:", "Prénom:"); ?></label>
+                </td>
+                <td>
+                    <input type='input' name='first_name' id='first_name'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="last_name"><?php checkLanguage("Last Name:", "Nom de Famille:"); ?></label>
+                </td>
+                <td>
+                    <input type='input' name='last_name' id='last_name'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="address"><?php checkLanguage("Address:", "Adresse:"); ?></label>
+                </td>
+                <td>
+                    <input type='input' name='address' id='address'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="number"><?php checkLanguage("Phone ", "Téléphone "); ?>(416-000-0000):</label>
+                </td>
+                <td>
+                    <input type="tel" id="number" name="number"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">Email:
+                </td>
+                <td>
+                    <input type='email' name='email' id='email'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password"><?php checkLanguage("Password:", "Le Mot de Passe:"); ?></label>
+                </td>
+                <td>
+                    <input type='password' name='password' id='password' >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password2"><?php checkLanguage("Confirm New Password::", "Confirmer le Nouveau Mot de Passe:"); ?></label>
+                </td>
+                <td>
+                    <input type='password' name='password2' id='password2'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="security"><?php checkLanguage("Secret Answer:", "Réponse Secrète:"); ?></label>
+                </td>
+                <td>
+                    <input type='input' name='security' id='security'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="agreement">
+                        <?php checkLanguage("I agree to Cypress Terms of Service and Privacy Agreement",
+                        "J'accepte les conditions d'utilisation et l'accord de confidentialité de Cypress"); ?>
+                    </label>
+                </td>
+                <td>
+                    <input type='checkbox' name='agreement' id='agreement'>
+                </td>
+            </tr>
+        </table>
         <br>
-            <br>
-            <button type="submit"  id="create_account" name="create_account">Create Account</button>
-
-    </form>
-    <br>
-            <br>
-            <button type="button"  id="cancel" name="cancel" onclick = "cancel()">Cancel</button>
-</div>
+        <br>
+        <button type="submit"  id="create_account" name="create_account"><?php checkLanguage("Create Account", "Créer un Compte"); ?></button>
+        </form>
+        <br>
+        <br>
+        <button type="button"  id="cancel" name="cancel" onclick = "cancel()"><?php checkLanguage("Cancel", "Annuler"); ?></button>
+    </div>
 </body>
 
 <div style = "width:50%; margin: auto; ">
@@ -150,48 +139,58 @@ if(isset($_POST['create_account'])){
     $queryRow = mysqli_num_rows($queryResult);
 
     // password not matching
-    if(strcmp($password, $password2) !== 0){
-        print("Password and confirm password are not the same. Please try again");
+    if (strcmp($password, $password2) !== 0) {
+        $message = checkLanguage("Password and Confirm Password are not the same. Please try again.", "Le mot de passe et la confirmation du mot de passe ne sont pas les mêmes. Veuillez réessayer.");
+        print($message);
     }
     // blank entry
-    elseif($fname == ""){
-        print("You must enter a first name");
+    elseif ($fname == "") {
+        $message = checkLanguage("You must enter a first name.", "Vous devez entrer un prénom.");
+        print($message);
     }
-    elseif($lname == ""){
-        print("You must enter a last name");
+    elseif ($lname == "") {
+        $message = checkLanguage("You must enter a last name.", "Vous devez entrer un nom de famille.");
+        print($message);
     }
-    elseif($address == ""){
-        print("You must enter an address");
+    elseif ($address == "") {
+        $message = checkLanguage("You must enter an address.", "Vous devez entrer une adresse.");
+        print($message);
     }
-    elseif($number == ""){
-        print("You must enter your number");
+    elseif ($number == "") {
+        $message = checkLanguage("You must enter your phone number.", "Vous devez entrer votre numéro de téléphone.");
+        print($message);
     }
-    elseif($security == ""){
-        print("You must a secruity word");
+    elseif ($security == "") {
+        $message = checkLanguage("You must a security word.", "Vous devez un mot de sécurité.");
+        print($message);
     }
-    elseif($email == "" ){
-        print("You must enter an email");
+    elseif ($email == "" ) {
+        $message = checkLanguage("You must enter an email.", "Vous devez saisir un email.");
+        print($message);
     }
-    elseif( $password == ""){
-        print("You must enter a password");
+    elseif ( $password == "") {
+        $message = checkLanguage("You must enter a password.", "Vous devez entrer un mot de passe.");
+        print($message);
     }
     // email taken
-    elseif($queryRow != 0){
-
-        print("An account already exists with this email");
+    elseif ($queryRow != 0) {
+        $message = checkLanguage("An account already exists with this email.", "Un compte existe déjà avec cette adresse e-mail.");
+        print($message);
         echo("<br>");
-        print("Please pick another email");
+        $message = checkLanguage("Please pick another email.", "Veuillez choisir un autre e-mail.");
+        print($message);
     }
-    elseif(!isset($_POST['agreement'])){
-        print("Please accept the terms and agreement");
+    elseif (!isset($_POST['agreement'])) {
+        $message = checkLanguage("Please accept the terms and agreement.", "Veuillez accepter les termes et l'accord.");
+        print($message);
     }
-    else{
+    else {
         // add to datebase
         $sqlQuery = "INSERT INTO Accounts (email, password,first_name,last_name,address,number,security) VALUES ('$email','$password','$fname','$lname','$address','$number','$security')";
         $mysql_connect -> query($sqlQuery);
 
+        $message = checkLanguageAlert("Your account was successfully created.", "Votre compte a été créé avec succès.");
 
-        $message = "Your account was successfully created.";
         echo "<script type='text/javascript'>alert('$message');</script>";
         // redirect user to index or login page
         echo'
@@ -199,7 +198,7 @@ if(isset($_POST['create_account'])){
         window.location.replace("https://cypress-cdbat.000webhostapp.com/index.php");
         </script>
         ';
-       }
+    }
 }
 
 ?>

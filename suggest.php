@@ -22,44 +22,45 @@ if (!$mysql_connect) {
 </head>
 
 <?php
+    $sqlQuery = "SELECT * FROM Forms ";
+    $queryResult = $mysql_connect->query($sqlQuery);
 
-
-$sqlQuery = "SELECT * FROM Forms ";
-$queryResult = $mysql_connect->query($sqlQuery);
-
-if ($queryResult) {
-
-    include 'header.php';
-
-    $queryRowCount = mysqli_num_rows($queryResult);
-
+    if ($queryResult) {
+        $queryRowCount = mysqli_num_rows($queryResult);
 ?>
 
 <body>
+    
+    <?php
+        include 'header.php';
+    ?>
+
     <div class='jumbotron' style="background-color:white">
         <div class='bg order-1 order-md-2'></div>
         <div class='contents order-2 order-md-1'>
             <div class='container'>
                 <div class='row align-items-center justify-content-center'>
                     <div class='col-md-12 py-5'>
-                    <form  method="POST" id = "suggest" name = "suggest" action="suggest2.php" >
-                    <h3>Suggestion Report Tab</h3>
+
+                        <h3><?php checkLanguage("Suggestion Report", "Rapport de Suggestion"); ?></h3>
+                        <p class='mb-4'>
                         <?php
                         if ($queryRowCount > 0) {
-                            print("<p class='mb-4'>Choose a report to make a suggestion.");
-                        }
+                            checkLanguage("Choose a report to make a suggestion.", "Choisissez un rapport pour faire une suggestion.");
+                        } 
                         else {
-                            print("<p class='mb-4'>You have no reports.");
+                            checkLanguage("You have no reports.", "Vous n'avez aucun rapport."); 
                         }
                         ?>
+                        </p>
 
                         <table class='table table-striped'>
                             <thead class='thead-dark'>
                                 <tr>
-                                    <th scope='col'>Damage Type</th>
-                                    <th scope='col'>City</th>
-                                    <th scope='col'>Street 1</th>
-                                    <th scope='col'>Street 2</th>
+                                    <th scope='col'><?php checkLanguage("Damage Type", "Type de Dommage"); ?></th>
+                                    <th scope='col'><?php checkLanguage("City", "Ville"); ?></th>
+                                    <th scope='col'><?php checkLanguage("Street 1", "Rue 1"); ?></th>
+                                    <th scope='col'><?php checkLanguage("Street 2", "Rue 2"); ?></th>
                                 </tr>
                             </thead>
 
@@ -77,15 +78,11 @@ if ($queryResult) {
                             </tbody>
                         </table>
 
-                        <?php
-                        if ($queryRowCount > 0) {
-                            print("<p class='my-4' id='report_selected'></p>");
-                                // send form id
-                                print("<input type='text' id='form_id' name='form_id' value=''/>");
+                        <p class='my-4' id='report_selected'></p>
 
-                                print("<input type='submit' id='suggest_report' name='suggest_report'/>");
-                        }
-                        ?>
+                        <form method="POST" id = "suggest" name = "suggest" action="suggest_report.php" >
+                            <input type='text' id='form_id' name='form_id' value=''/>
+                            <button class='btn btn-md btn-primary' type='submit' id='suggest_report' name='suggest_report'><?php checkLanguage("Make a Suggestion", "Faire une Suggestion"); ?></button>
                         </form>
                     </div>
                 </div>
@@ -96,10 +93,6 @@ if ($queryResult) {
 
 <?php
 }
-
-// wip
-$queryResult->free();
-$mysql_connect->close();
 
 ?>
 
