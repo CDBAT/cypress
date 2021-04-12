@@ -1,5 +1,5 @@
 # Cypress
-https://cypress-cdbat.000webhostapp.com/login.php
+https://cypress-cdbat.000webhostapp.com
 ## Description
 Rome can be built in a day.
 
