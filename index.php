@@ -32,9 +32,9 @@ include 'header.php';
         <div id="page-wrap">
             <img src="/images/city-of-toronto-logo.jpg" class="img-fluid" alt="City of Toronto Logo"/>
         </div>
-        
+
         <div>
-            <form id="language_form" name="language_form" method='POST' action=''>
+            <form id="language_form" name="language_form" method='POST' action="https://cypress-cdbat.000webhostapp.com/index.php">
                 <input type='text' value='' id='language' name='language' style='display:none'>
                 <button type='submit' id='set_language' name='set_language' class='btn btn-lg btn-primary mx-5' onclick="setLanguage('English')">English</button>
                 <button type='submit' id='set_language' name='set_language' class='btn btn-lg btn-primary mx-5' onclick="setLanguage('French')">Fran&ccedil;ais</button>
@@ -49,12 +49,22 @@ include 'header.php';
 <?php
 
 if (isset($_POST['set_language'])) {
+    unset($_POST['set_language']);
     $_SESSION['language_setting'] = $_POST['language'];
 
     $message = "Changed language to: " . $_SESSION['language_setting'];
     echo "<script type='text/javascript'>alert('$message');</script>";
+    echo "<script type='text/javascript'>window.location.replace(\"https://cypress-cdbat.000webhostapp.com/index.php\");;</script>";
+
+
 }
 
 ?>
+
+<script>
+if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+}
+</script>
 
 </html>

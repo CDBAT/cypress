@@ -32,7 +32,7 @@ if (!$mysql_connect) {
     // get the total report from each city
     foreach ($all_cities_report as $city => $value){
 
-            // select everything from the table Accounts where the column email = userEmail and column password = userpassword
+        // select everything from the table Accounts where the column email = userEmail and column password = userpassword
         $sqlQuery = "SELECT * FROM Forms WHERE city ='$city'";
 
         // get query result
@@ -62,21 +62,22 @@ if (!$mysql_connect) {
         <div class='contents order-2 order-md-1'>
             <div class='container'>
                 <div class='row'>
-                    <h1>Rankings</h1>
+                    <h1><?php checkLanguage("Rankings", "Classements"); ?></h1>
                 </div>
                 <div class='row'>
-                    <p class='mb-4'>The ranking of cities with the most reports and the ranking of property damage with the most reports are found below:</p>
+                    <p class='mb-4'><?php checkLanguage("The ranking of cities with the most reports and the ranking of property damage with the most reports are found below:", 
+                        "Le classement des villes avec le plus de signalements et le classement des dommages matériels avec le plus de signalements se trouvent ci-dessous:"); ?></p>
                 </div>
                 <div class='row align-items-top'>
                     <div class='col-md-6 py-5'>
-                        <h2 style="text-align: center;">City of Toronto Locations</h2>
+                        <h2 style="text-align: center;"><?php checkLanguage("City of Toronto Locations", "Emplacements de la ville de Toronto"); ?></h2>
 
                         <table class='table table-striped'>
                             <thead class='thead-dark'>
                                 <tr>
-                                    <th scope='col'>Rank</th>
-                                    <th scope='col'>Locations</th>
-                                    <th scope='col'>Number of Reports</th>
+                                    <th scope='col'><?php checkLanguage("Rank", "Rang"); ?></th>
+                                    <th scope='col'><?php checkLanguage("Locations", "Emplacements"); ?></th>
+                                    <th scope='col'><?php checkLanguage("Number of Reports", "Nombre de Rapports"); ?></th>
                                 </tr>
                             </thead>
 
@@ -100,13 +101,13 @@ if (!$mysql_connect) {
                     </div>
                         
                     <div class='col-md-6 py-5'>
-                        <h2 style = "text-align: center;">Property Damage</h2>
+                        <h2 style = "text-align: center;"><?php checkLanguage("Property Damage", "Dommages à la Propriété"); ?></h2>
                         <table class='table table-striped'>
                             <thead class='thead-dark'>
                                 <tr>
-                                    <th scope='col'>Rank</th>
-                                    <th scope='col'>Damage Type</th>
-                                    <th scope='col'>Number of Reports</th>
+                                    <th scope='col'><?php checkLanguage("Rank", "Rang"); ?></th>
+                                    <th scope='col'><?php checkLanguage("Damage Type", "Type de Dommage"); ?></th>
+                                    <th scope='col'><?php checkLanguage("Number of Reports", "Nombre de Rapports"); ?></th>
                                 </tr>
                             </thead>
 
@@ -132,7 +133,6 @@ if (!$mysql_connect) {
         </div>
     </div>
 </body>
-
 
 <script src="scripts/load_report.js"></script>
 
