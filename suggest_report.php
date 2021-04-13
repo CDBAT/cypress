@@ -110,8 +110,8 @@ if(isset($_POST['suggest_report']) || isset($_POST['make_suggestion'])  ){
         $message = $_POST['user_suggestion'];
 
         if ($message == "") {
-            $error = checkLanguage("You can not submit an EMPTY suggestion.", "Vous ne pouvez pas soumettre de suggestion VIDE.");
-            print($error);
+            $error = checkLanguageAlert("You can not submit an EMPTY suggestion.", "Vous ne pouvez pas soumettre de suggestion VIDE.");
+            echo "<script type='text/javascript'>alert('$error');</script>";
         }
         else {
             // query to add to databse

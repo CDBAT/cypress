@@ -145,10 +145,13 @@ Sincèrement,")?>
                         if(isset($_POST['send_email'])){
                             $friend_email = $_POST['friend_email'];
                             $message = $_POST['email_message'];
+                            
                             // send email to friend
                             mail($friend_email,'Password Reset Cypress', $message, '$email');
+                            
                             $message = checkLanguageAlert("Email has been sent", "L'email a été envoyé");
                             echo "<script type='text/javascript'>alert('$message');</script>";
+                            
                             echo'
                             <script>
                             window.location.replace("https://cypress-cdbat.000webhostapp.com/index.php");

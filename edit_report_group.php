@@ -87,9 +87,6 @@ if ($queryResult) {
 <?php
 }
 
-$queryResult->free();
-$mysql_connect->close();
-
 ?>
 
 <script src="scripts/load_report.js"></script>

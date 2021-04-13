@@ -38,7 +38,7 @@ if(isset($_POST['delete_account'])){
         $mysql_connect -> query($sqlQuery);
 
         // delete all forms made by user
-        $sqlQuery = "DELETE FROM Forms WHERE email = '$email' AND ";
+        $sqlQuery = "DELETE FROM Forms WHERE email = '$email' ";
         $mysql_connect -> query($sqlQuery);
 
         // delete all suggestion from user
@@ -65,7 +65,7 @@ if(isset($_POST['delete_account'])){
         </script>
         ';
     }else{
-        $message = checkLanguageAlert("INCORRECT secret question. FAILED to DELETE ACCOUNT","INCORRECT secret question. FAILED to DELETE ACCOUNT");
+        $message = checkLanguageAlert("INCORRECT secret question. FAILED to DELETE ACCOUNT","Question secrète INCORRECTE. Échec de la suppression du compte.");
         echo "<script type='text/javascript'>alert('$message');</script>";    }
 }
 

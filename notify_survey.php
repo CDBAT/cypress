@@ -124,16 +124,16 @@ include 'header.php';
 
                             // blank entry
                             if ($navigation == "") {
-                                $message = checkLanguage("Let us know how easy it is to navigate our website.", "Faites-nous savoir à quel point il est facile de naviguer sur notre site Web.");
-                                print("$message");
+                                $message = checkLanguageAlert("Let us know how easy it is to navigate our website.", "Faites-nous savoir à quel point il est facile de naviguer sur notre site Web.");
+                                echo "<script type='text/javascript'>alert('$message');</script>";
                             }
                             elseif ($useful == "") {
-                                $message = checkLanguage("Let us know how useful our website it.", "Faites-nous savoir à quel point notre site Web est utile.");
-                                print($message);
+                                $message = checkLanguageAlert("Let us know how useful our website it.", "Faites-nous savoir à quel point notre site Web est utile.");
+                                echo "<script type='text/javascript'>alert('$message');</script>";
                             }
                             elseif ($experience == "") {
-                                $message = checkLanguage("Let us know about your experience with our website.", "Faites-nous part de votre expérience avec notre site Web.");
-                                print($message);
+                                $message = checkLanguageAlert("Let us know about your experience with our website.", "Faites-nous part de votre expérience avec notre site Web.");
+                                echo "<script type='text/javascript'>alert('$message');</script>";
                             }
                             else {
                                 // add to datebase
