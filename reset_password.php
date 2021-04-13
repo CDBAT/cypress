@@ -62,7 +62,7 @@
                     </td>
                 </tr>
             <table>
-            <button type="submit" id="reset_password" name="reset_password"><?php checkLanguage("Reset Password", "Réinitialiser le mot de passe"); ?></button>
+            <button type="submit" id="reset_password" name="reset_password"><?php checkLanguage("Reset Password", "Réinitialiser le Mot de Passe"); ?></button>
         <form>
     <div>
 </body>
@@ -87,24 +87,24 @@ if(isset($_POST['reset_password'])){
     if($queryRows == 1){
         // password not matching
         if (strcmp($password, $password2) !== 0) {
-            $message = checkLanguage("New Password and Confirm New Password are not the same. Please try again.", "Le nouveau mot de passe et la confirmation du nouveau mot de passe ne sont pas les mêmes. Veuillez réessayer.");
-            print($message);
+            $message = checkLanguageAlert("New Password and Confirm New Password are not the same. Please try again.", "Le nouveau mot de passe et la confirmation du nouveau mot de passe ne sont pas les mêmes. Veuillez réessayer.");
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
         // blank entry
         elseif ($email == "" ) {
-            $message = checkLanguage("You must enter an email.", "Vous devez saisir un email.");
-            print($message);
+            $message = checkLanguageAlert("You must enter an email.", "Vous devez saisir un email.");
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
         elseif ($password == "") {
-            $message = checkLanguage("You must enter a password.", "Vous devez entrer un mot de passe.");
-            print($message);
+            $message = checkLanguageAlert("You must enter a password.", "Vous devez entrer un mot de passe.");
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
         else {
             $sqlQuery = "UPDATE Accounts SET password = '$password' WHERE email ='$email' AND security ='$security'";
             // get query result
             $queryResult = $mysql_connect -> query($sqlQuery);
             // message
-            $message = checkLanguage("Your new password is ", "Votre nouveau mot de passe est ");
+            $message = checkLanguageAlert("Your new password is ", "Votre nouveau mot de passe est ");
             $msg = $message . $password;
 
             // use wordwrap() if lines are longer than 70 characters
@@ -113,16 +113,16 @@ if(isset($_POST['reset_password'])){
             // send email (to, subject, message, from)
             mail($email,'Password Reset Cypress', $msg, 'cypress@email.com');
         }
-        $message = checkLanguage("Password changed successfully.", "Le mot de passe a été changé avec succès");
-        print($message);
+        $message = checkLanguageAlert("Password changed successfully.", "Le mot de passe a été changé avec succès");
+        echo "<script type='text/javascript'>alert('$message');</script>";
         echo("<br>");
         $message = checkLanguage("Email has been sent.", "L'email a été envoyé.");
-        print($message);
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     // no such account or security
     else {
-        $message = checkLanguage("The email or secret question is incorrect please try again.", "L'email ou la question secrète est incorrecte, veuillez réessayer.");
-        print($message);
+        $message = checkLanguageAlert("The email or secret question is incorrect please try again.", "L'email ou la question secrète est incorrecte, veuillez réessayer.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
 }
 ?>

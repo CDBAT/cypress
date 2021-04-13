@@ -134,7 +134,9 @@ if(!$mysql_connect){
                                     </label>
                                 </div>
                             </div>
-                            <input type="submit" id="create_report" name="create_report" value="[EN] Create Report / [FR] Creer un Rapport" class="btn px-5 btn-primary">
+                            <button type="submit" id="create_report" name="create_report" class="btn px-5 btn-primary">
+                                <?php checkLanguage("Create Report", "Creer un Rapport"); ?>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -170,20 +172,20 @@ if(isset($_POST['create_report'])) {
 
     // Blank entries
     if ($queryRow != 0) {
-        $message = checkLanguage("A similar report has already been created by you.", "Un rapport similaire a déjà été créé par vous.");
-        print($message);
+        $message = checkLanguageAlert("A similar report has already been created by you.", "Un rapport similaire a déjà été créé par vous.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($damage_type == "") {
-        $message = checkLanguage("You must select a type of property damage.", "Vous devez sélectionner un type de dommage matériel.");
-        print($message);
+        $message = checkLanguageAlert("You must select a type of property damage.", "Vous devez sélectionner un type de dommage matériel.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($street1 == "") {
-        $message = checkLanguage("You must enter a street name.", "Vous devez entrer un nom de rue.");
-        print($message);
+        $message = checkLanguageAlert("You must enter a street name.", "Vous devez entrer un nom de rue.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($street2 == "" || $street1 == $street2) {
-        $message = checkLanguage("You must enter another street name.", "Vous devez entrer un autre nom de rue.");
-        print($message);
+        $message = checkLanguageAlert("You must enter another street name.", "Vous devez entrer un autre nom de rue.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     else {
         // Add to database

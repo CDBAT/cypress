@@ -102,12 +102,11 @@ if (isset($_POST['submit_delete_report'])) {
     $email = $_SESSION['email'];
     $form_id = $email . $_POST['formID'];
 
-    echo "<script type='text/javascript'>alert('$form_id');</script>";
 
     $sqlQuery = "DELETE FROM Forms WHERE form_id=\"$form_id\"";
     
     if ($mysql_connect->query($sqlQuery) === TRUE) {
-        $message = "You successfully deleted the report.";
+        $message = checkLanguageAlert("You successfully deleted the report.", "Vous avez supprimé le rapport avec succès.");
         echo "<script type='text/javascript'>alert('$message');</script>";
 
         echo'
@@ -120,9 +119,6 @@ if (isset($_POST['submit_delete_report'])) {
         echo "Error deleting record: " . $mysql_connect->error;
     }
 }
-
-$queryResult->free();
-$mysql_connect->close();
 
 ?>
 

@@ -52,7 +52,9 @@ if (isset($_POST['set_language'])) {
     unset($_POST['set_language']);
     $_SESSION['language_setting'] = $_POST['language'];
 
-    $message = "Changed language to: " . $_SESSION['language_setting'];
+    $changed = checkLanguageAlert("Changed language to: ", "Changement de langue en: ");
+
+    $message = $changed . $_SESSION['language_setting'];
     echo "<script type='text/javascript'>alert('$message');</script>";
     echo "<script type='text/javascript'>window.location.replace(\"https://cypress-cdbat.000webhostapp.com/index.php\");;</script>";
 

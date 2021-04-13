@@ -52,10 +52,10 @@ include 'header.php';
     <div style = "width:50%; margin: 0 auto;">
 
         <p><strong>
-            <?php checkLanguage("You are currently at the Cypress login page. By Logging onto this sytem, you ", 
+            <?php checkLanguage("You are currently at the Cypress login page. By Logging onto this sytem, you ",
             "Vous êtes actuellement sur la page de connexion de Cypress. En vous connectant à ce système, vous "); ?>
         <br>
-            <?php checkLanguage("will be able to report a variety of problems you have witnessed on the streets of Toronto.", 
+            <?php checkLanguage("will be able to report a variety of problems you have witnessed on the streets of Toronto.",
             "sera en mesure de signaler une variété de problèmes dont vous avez été témoin dans les rues de Toronto."); ?>
         </strong></p>
         <br>
@@ -69,7 +69,7 @@ include 'header.php';
             </tr>
             <tr>
                 <td>
-                    <label for="email">Email:
+                    <label for="email">Email:</label>
                 </td>
                 <td>
                     <input type='email' name='email' id='email'>
@@ -77,7 +77,7 @@ include 'header.php';
             </tr>
             <tr>
                 <td>
-                    <label for="pass"><?php checkLanguage("Password", "Le Mot de Passe"); ?>:
+                    <label for="pass"><?php checkLanguage("Password", "Le Mot de Passe"); ?>:</label>
                 </td>
                 <td>
                     <input type='password' name='pass' id='pass'>
@@ -96,6 +96,16 @@ include 'header.php';
                     <button  id = "forgot_pass" name = "forgot_pass" onclick = "reset_password()" type = "submit">
                         <?php checkLanguage("Forgot Password", "Mot de Passe Oublié"); ?>
                     </button>
+                    <?php
+                        // account not found
+                        if(isset($_POST['login'])){
+                        if($queryRows != 1){
+                            ?>
+                            <p style = "color:red;"> <?php checkLanguage("Email or Password is incorrect.", "E-mail ou mot de passe incorrect."); ?> Try again </p>
+                            <?php
+                        }
+                    }
+                    ?>
                 </td>
             </tr>
             <!-- <label for ="email">Username:

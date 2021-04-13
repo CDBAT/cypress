@@ -140,49 +140,49 @@ if(isset($_POST['create_account'])){
 
     // password not matching
     if (strcmp($password, $password2) !== 0) {
-        $message = checkLanguage("Password and Confirm Password are not the same. Please try again.", "Le mot de passe et la confirmation du mot de passe ne sont pas les mêmes. Veuillez réessayer.");
+        $message = checkLanguageAlert("Password and Confirm Password are not the same. Please try again.", "Le mot de passe et la confirmation du mot de passe ne sont pas les mêmes. Veuillez réessayer.");
         print($message);
     }
     // blank entry
     elseif ($fname == "") {
-        $message = checkLanguage("You must enter a first name.", "Vous devez entrer un prénom.");
-        print($message);
+        $message = checkLanguageAlert("You must enter a first name.", "Vous devez entrer un prénom.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($lname == "") {
-        $message = checkLanguage("You must enter a last name.", "Vous devez entrer un nom de famille.");
-        print($message);
+        $message = checkLanguageAlert("You must enter a last name.", "Vous devez entrer un nom de famille.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($address == "") {
-        $message = checkLanguage("You must enter an address.", "Vous devez entrer une adresse.");
-        print($message);
+        $message = checkLanguageAlert("You must enter an address.", "Vous devez entrer une adresse.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($number == "") {
-        $message = checkLanguage("You must enter your phone number.", "Vous devez entrer votre numéro de téléphone.");
-        print($message);
+        $message = checkLanguageAlert("You must enter your phone number.", "Vous devez entrer votre numéro de téléphone.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($security == "") {
-        $message = checkLanguage("You must a security word.", "Vous devez un mot de sécurité.");
-        print($message);
+        $message = checkLanguageAlert("You must a security word.", "Vous devez un mot de sécurité.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ($email == "" ) {
-        $message = checkLanguage("You must enter an email.", "Vous devez saisir un email.");
-        print($message);
+        $message = checkLanguageAlert("You must enter an email.", "Vous devez saisir un email.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif ( $password == "") {
-        $message = checkLanguage("You must enter a password.", "Vous devez entrer un mot de passe.");
-        print($message);
+        $message = checkLanguageAlert("You must enter a password.", "Vous devez entrer un mot de passe.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     // email taken
     elseif ($queryRow != 0) {
-        $message = checkLanguage("An account already exists with this email.", "Un compte existe déjà avec cette adresse e-mail.");
-        print($message);
+        $message = checkLanguageAlert("An account already exists with this email.", "Un compte existe déjà avec cette adresse e-mail.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
         echo("<br>");
-        $message = checkLanguage("Please pick another email.", "Veuillez choisir un autre e-mail.");
-        print($message);
+        $message = checkLanguageAlert("Please pick another email.", "Veuillez choisir un autre e-mail.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     elseif (!isset($_POST['agreement'])) {
-        $message = checkLanguage("Please accept the terms and agreement.", "Veuillez accepter les termes et l'accord.");
-        print($message);
+        $message = checkLanguageAlert("Please accept the terms and agreement.", "Veuillez accepter les termes et l'accord.");
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
     else {
         // add to datebase
@@ -203,6 +203,7 @@ if(isset($_POST['create_account'])){
 
 ?>
 </div>
+
 
 <script src="scripts/cancel.js"></script>
 

@@ -128,27 +128,27 @@ if(isset($_POST['change'])){
 
     // check for blanks
     if ($first_name == "") {
-        $message = checkLanguage("You must enter a first name.", "Vous devez entrer un prénom.");
+        $message = checkLanguageAlert("You must enter a first name.", "Vous devez entrer un prénom.");
         print($message);
     }
     elseif ($last_name == "") {
-        $message = checkLanguage("You must enter a last name.", "Vous devez entrer un nom de famille.");
+        $message = checkLanguageAlert("You must enter a last name.", "Vous devez entrer un nom de famille.");
         print($message);
     }
     elseif ($address == "") {
-        $message = checkLanguage("You must enter an address.", "Vous devez entrer une adresse.");
+        $message = checkLanguageAlert("You must enter an address.", "Vous devez entrer une adresse.");
         print($message);
     }
     elseif ($number == "") {
-        $message = checkLanguage("You must enter your phone number.", "Vous devez entrer votre numéro de téléphone.");
+        $message = checkLanguageAlert("You must enter your phone number.", "Vous devez entrer votre numéro de téléphone.");
         print($message);
     }
     elseif ($security == "") {
-        $message = checkLanguage("You must a security word.", "Vous devez un mot de sécurité.");
+        $message = checkLanguageAlert("You must a security word.", "Vous devez un mot de sécurité.");
         print($message);
     }
     elseif ($password == "") {
-        $message = checkLanguage("You must enter a password.", "Vous devez entrer un mot de passe.");
+        $message = checkLanguageAlert("You must enter a password.", "Vous devez entrer un mot de passe.");
         print($message);
     }
     else {
@@ -164,6 +164,8 @@ if(isset($_POST['change'])){
 
         $message = checkLanguageAlert("Your changes were successful.", "Vos modifications ont réussi.");
         echo "<script type='text/javascript'>alert('$message');</script>";
+        echo "<script type='text/javascript'>window.location.replace(\"https://cypress-cdbat.000webhostapp.com/account_settings.php\");</script>";
+
     }
 }
 
